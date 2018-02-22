@@ -8,5 +8,7 @@ class Person extends Model
 {
     protected $table = 'persons';
     protected $fillable = ['name', 'birthdate'];
+
+    public $timestamps = false;
  
 }

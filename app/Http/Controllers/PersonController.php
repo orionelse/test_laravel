@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-user \App\Person;
+use \App\Person;
 
 class PersonController extends Controller
 {
     Public function index(){
         $people = Person::all();
+	
+	//return "Kop kun krub jan";
 
         return response()->json($people, 200);
     }
@@ -19,10 +21,10 @@ class PersonController extends Controller
         $person = new Person();
         $person->fill($input);
 
-        if ($person->save){
+        if ($person->save()){
             return response()->json("Successfully save person.", 200);
         } else {
-            return response()->json("Unable to save person", 200);
+            return response()->json("Unable to save person", 500);
         }
 
     }
